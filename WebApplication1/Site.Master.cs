@@ -9,6 +9,8 @@ using System.Text.Json;
 using Microsoft.Ajax.Utilities;
 using System.Security.Principal;
 using Newtonsoft.Json.Linq;
+using RestSharp.Authenticators;
+using System.Text;
 
 namespace WebApplication1
 {
@@ -34,6 +36,13 @@ namespace WebApplication1
             request = new RestRequest();
             request.Method = Method.Post;
             request.AddJsonBody(weather); 
+            response = client.Execute(request);
+
+            client = new RestClient("https://localhost:7050/users");
+            request = new RestRequest();
+            request.Method = Method.Get;
+            string authenticateHeader = Convert.ToBase64String(Encoding.UTF8.GetBytes("test:test"));
+            request.AddHeader("Authorization", "Basic "+ authenticateHeader);
             response = client.Execute(request);
 
         }

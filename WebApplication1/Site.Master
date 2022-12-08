@@ -38,8 +38,8 @@
             </Scripts>
         </asp:ScriptManager>
         <script type="text/javascript">
-            alert('1');
-            $(document).ready(alert('document ready'));
+            //alert('1');
+            //$(document).ready(alert('document ready'));
         </script>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
